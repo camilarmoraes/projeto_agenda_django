@@ -21,6 +21,9 @@ class Contato(models.Model): #Herdando de Model
     data_criacao = models.DateTimeField(default=timezone.now)
     descricao = models.TextField(blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)# Relação entre as tabelas
+    #Campo mostrar
+    mostrar = models.BooleanField(default=True) #Por padrão fica marcado
+    foto = models.ImageField(blank=True,upload_to='fotos/%Y/%m/%d')
 
     def __str__(self):
         return self.nome #Aparecerá o nome
